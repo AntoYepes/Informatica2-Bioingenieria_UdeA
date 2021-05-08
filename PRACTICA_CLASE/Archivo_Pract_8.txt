@@ -1,0 +1,12 @@
+Nombre: Anto
+Cedula: 1212
+Genero: F
+Fecha: 240421
+Registro: C:\Users\Antonia/Pacientes_1212
+Notas: cardio
+a1: 1.0
+a2: 2.0
+b: 3.0
+d: 4.0
+g: 5.0
+t: 6.0

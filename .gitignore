@@ -1,0 +1,5 @@
+/CLASES
+/DIAGRAMAS UML
+*.pptx
+*.docx
+**/__pycache__/
