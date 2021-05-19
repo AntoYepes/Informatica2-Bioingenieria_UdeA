@@ -1,3 +1,4 @@
+#%%
 import random as r
 
 class Player():
@@ -27,3 +28,4 @@ class Player():
 Player().run()
     
     
+# %%

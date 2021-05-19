@@ -6,60 +6,57 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>107</height>
+    <width>209</width>
+    <height>100</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="horizontalLayoutWidget">
+  <widget class="QWidget" name="formLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>10</y>
-     <width>351</width>
-     <height>51</height>
+     <x>29</x>
+     <y>20</y>
+     <width>151</width>
+     <height>31</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
-     <widget class="QPushButton" name="boton_juego1">
+   <layout class="QFormLayout" name="formLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label">
       <property name="font">
        <font>
-        <pointsize>16</pointsize>
+        <pointsize>14</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>Juego 1</string>
+       <string>Ranking</string>
       </property>
      </widget>
     </item>
-    <item>
-     <widget class="QPushButton" name="boton_juego2">
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="campo_ranking">
       <property name="font">
        <font>
-        <pointsize>16</pointsize>
+        <pointsize>14</pointsize>
        </font>
-      </property>
-      <property name="text">
-       <string>Juego 2</string>
       </property>
      </widget>
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="boton_cancelar">
+  <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>70</y>
+     <x>50</x>
+     <y>60</y>
      <width>111</width>
-     <height>31</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>Cancelar</string>
+    <string>Nice try. Keep trying!</string>
    </property>
   </widget>
  </widget>
