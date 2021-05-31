@@ -82,20 +82,27 @@ class VentanaJuego1(QDialog):
         self.campo_numero.setValidator(QIntValidator())
         self.buttonBox.accepted.connect(self.opcion_guess)
         self.buttonBox.rejected.connect(self.opcion_cancelar)
+        self.boton_ranking.clicked.connect(self.ranking)
         
     def opcion_guess(self):
         num = self.campo_numero.text()
-        self.__mi_coordinador.guessNum(num)
-        #ventana_ranking = VentanaRanking(self)
-        #ventana_ranking.show()
-    
+        resultado = self.__mi_coordinador.guessNum(num)
+        msm = QMessageBox.information(self, 'No de Intentos', str(resultado))
+        juego_1_1 = VentanaJuego1(self)
+        juego_1_1.show()
+        
+    def ranking(self):
+        ventana_ranking = VentanaRanking(self)
+        ventana_ranking.setControlador(self.__mi_coordinador)
+        ventana_ranking.show()
+        
     def opcion_cancelar(self):
         self.close()
         self.__ventana_ppal.show()
         
 class VentanaRanking(QDialog):
     def __init__(self, ppal = None):
-        super(VentanaRanking).__init__(ppal)
+        super(VentanaRanking, self).__init__(ppal)
         loadUi('ventana_ranking.ui', self)
         self.setup()
         self.__ventana_ppal  = ppal
@@ -130,23 +137,23 @@ class VentanaJuego2(QDialog):
         self.buttonBox.rejected.connect(self.opcion_cancelar)
         
     def btn1(self):
-        self.uno.setText(random.choice(string.ascii_letters[0:4]))
+        self.uno.setText(random.choice(string.ascii_letters[0:5]))
     def btn2(self):
-        self.dos.setText(random.choice(string.ascii_letters[0:4]))
+        self.dos.setText(random.choice(string.ascii_letters[0:5]))
     def btn3(self):
-        self.tres.setText(random.choice(string.ascii_letters[0:4]))   
+        self.tres.setText(random.choice(string.ascii_letters[0:5]))   
     def btn4(self):
-        self.cuatro.setText(random.choice(string.ascii_letters[0:4]))
+        self.cuatro.setText(random.choice(string.ascii_letters[0:5]))
     def btn5(self):
-        self.cinco.setText(random.choice(string.ascii_letters[0:4]))
+        self.cinco.setText(random.choice(string.ascii_letters[0:5]))
     def btn6(self):
-        self.seis.setText(random.choice(string.ascii_letters[0:4]))
+        self.seis.setText(random.choice(string.ascii_letters[0:5]))
     def btn7(self):
-        self.siete.setText(random.choice(string.ascii_letters[0:4]))
+        self.siete.setText(random.choice(string.ascii_letters[0:5]))
     def btn8(self):
-        self.ocho.setText(random.choice(string.ascii_letters[0:4]))
+        self.ocho.setText(random.choice(string.ascii_letters[0:5]))
     def btn9(self):
-        self.nueve.setText(random.choice(string.ascii_letters[0:4]))
+        self.nueve.setText(random.choice(string.ascii_letters[0:5]))
         
     def opcion_busq_pareja(self):
         pass

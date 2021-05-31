@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>209</width>
-    <height>100</height>
+    <width>186</width>
+    <height>103</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,7 +16,7 @@
   <widget class="QWidget" name="formLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>29</x>
+     <x>19</x>
      <y>20</y>
      <width>151</width>
      <height>31</height>
@@ -46,17 +46,17 @@
     </item>
    </layout>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QPushButton" name="boton_ok">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>60</y>
-     <width>111</width>
+     <x>70</x>
+     <y>70</y>
+     <width>51</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>Nice try. Keep trying!</string>
+    <string>Ok</string>
    </property>
   </widget>
  </widget>
