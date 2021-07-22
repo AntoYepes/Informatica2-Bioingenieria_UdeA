@@ -1,9 +1,9 @@
 # MODELO
 # Se requiere un sistema que permita gestionar pacientes. 
-#Cada paciente tiene información de: 
-    #nombre, cédula, medicamentos. 
-    # Cada medicamento tiene información de: 
-        # nombre y dosis.
+# Cada paciente tiene información de: 
+#nombre, cédula, medicamentos. 
+# Cada medicamento tiene información de: 
+# # nombre y dosis.
 # El sistema debe permitir
 # • Ingresar un paciente, cada paciente con múltiples
 # medicamentos. No pueden haber pacientes duplicados

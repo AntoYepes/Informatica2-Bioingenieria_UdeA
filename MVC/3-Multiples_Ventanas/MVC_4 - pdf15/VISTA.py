@@ -83,7 +83,7 @@ class ventanaMedicamento(QDialog):
         dosis = self.campo_dosis.text()
         #2- si el medicamento no esta se guarda
         if nombre.lower() not in self.__medicamentos:
-            m = medicamento()
+            m = Medicamento()
             m.setNombre(nombre)
             m.setdosis(dosis)
             self.__medicamentos[nombre.lower()] = m
