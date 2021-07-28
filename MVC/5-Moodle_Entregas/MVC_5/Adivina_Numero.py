@@ -1,22 +1,17 @@
-import math
 import random
-def generar_numero_aleatorio(inicio,fin):
-    valorInicial = int(random.random()*fin) 
-    numero = valorInicial if valorInicial >= inicio else valorInicial + inicio
-    return numero
-start = 1
-end = 9999
-numgen = generar_numero_aleatorio(start, end)
+
+numgen = random.randint(1000,9999)
 salir = True
 contador = 0
+
 while salir:
-    op_user=int(input(f'Ingrese un valor entre {start}  y {end}: '))
+    op_user = int(input(f'Ingrese numero de 4 digitos: '))
     if op_user == numgen:
         contador += 1
         print(f'Ganaste con {contador} intento(s)')
         res = input('¿Deseas seguir jugando?S/N: ')
         if res == 'S' or res =='s':
-            numgen = generar_numero_aleatorio(start,end)
+            numgen = numgen
             continue
         elif res =='N' or res =='n':  
             salir = False
@@ -26,9 +21,9 @@ while salir:
             break
     else:
         contador += 1
-        print(f'Fallaste llevas {contador} intentos, sigue adelante')
+        print(f'Llevas {contador} intentos, sigue adelante')
         if op_user > numgen:
-            print('Ingresaste valor por encima,vuelve a intentar' + '\n')
+            print(f'Tu numero {op_user} esta por encima' + '\n')
         else:
-            print('Ingresaste valor por debajo,vuelve a intentar' + '\n')
+            print(f'Tu numero {op_user} esta por debajo' + '\n')
 print('Fin del programa')

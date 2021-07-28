@@ -19,6 +19,12 @@ class Coordinador:
     def guessNum(self, n):
         return self.__mi_modelo.guessing(n)
         
+    def matrix_button(self):
+        return self.__mi_modelo.matrix()
+    
+    def match(self, num):
+        return self.__mi_modelo.match_review(num)
+    
 def main():
     app = QApplication(sys.argv)
     mi_vista = VentanaLogin()
@@ -30,6 +36,4 @@ def main():
     
 if __name__ == '__main__':
     main()
-# %%
-
 # %%
