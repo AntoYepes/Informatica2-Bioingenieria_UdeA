@@ -18,12 +18,15 @@ contador = 0
 while salir:
     op_user = int(input(f'Ingrese numero de 4 digitos: ' + '\n'))
     list_op_user = [int(d) for d in str(op_user)]
-    if op_user == numgen:
-        contador += 1
-        print(f'Ganaste con {contador} intento(s)')
-        
+    if len(list_op_user) == 4:
+        if op_user == numgen:
+            contador += 1
+            print(f'Ganaste con {contador} intento(s)')
+            
+        else:
+            contador += 1
+            print(f'Llevas {contador} intentos, sigue adelante')
+            verif_num(list_numgen, list_op_user, op_user)
     else:
-        contador += 1
-        print(f'Llevas {contador} intentos, sigue adelante')
-        verif_num(list_numgen, list_op_user, op_user)
-        
+        print('ERROR')
+        continue

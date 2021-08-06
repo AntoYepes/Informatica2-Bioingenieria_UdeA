@@ -20,7 +20,7 @@ class Coordinador:
         return self.__mi_modelo.guessing(n)
         
     def matrix_button(self):
-        return self.__mi_modelo.matrix()
+        return self.__mi_modelo.matrix_base()
     
     def match(self, num):
         return self.__mi_modelo.match_review(num)

@@ -115,7 +115,7 @@ class VentanaJuego2(QDialog):
         self.siete.clicked.connect(self.btn7)
         self.ocho.clicked.connect(self.btn8)
         self.nueve.clicked.connect(self.btn9)
-        self.buttonBox.acceptes.connect(self.matching_game)
+        self.buttonBox.accepted.connect(self.matching_game)
         self.buttonBox.rejected.connect(self.opcion_cancelar)
         
     def btn1(self):
@@ -155,8 +155,12 @@ class VentanaJuego2(QDialog):
         self.nueve.setText(str(matrix[2, 2]))
         
     def matching_game(self):
-        pass
-    
+        for i in [self.btn1, self.btn2, self.btn3, self.btn4, self.btn5, self.btn6, self.btn7, self.btn8, self.btn9]:
+            print(i)
+            if i.isChecked():
+                num1 = self.__mi_coordinador.match(i)
+                
+        
     def opcion_cancelar(self):
         self.close()
         self.__ventana_ppal.show()

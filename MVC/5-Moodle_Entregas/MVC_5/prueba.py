@@ -54,3 +54,6 @@ for i in range(len(result)):
     print('Numero en posicion ' + str(result[i]) + ' es correcto')
 
 # %%
+dicti = {'A', 'B', 'C', 'D'}
+print(dicti['C'][0])
+# %%
