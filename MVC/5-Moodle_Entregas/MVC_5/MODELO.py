@@ -1,6 +1,7 @@
 #%% CONTROLADOR
 import random 
 import numpy as np
+import time
 class Jugador:
     def __init__(self):
         self.__usuario = ''
@@ -18,11 +19,16 @@ class Jugador:
         
 class Sistema:
     def __init__(self):
+        # Atributos para juego 1
         self.__jugador = {}
         self.real_ans = random.randint(1000,9999)
         self.contador = 0
         self.array = np.random.randint(10, size=(3, 3))
+        # Atributos para juego 2 
+        # self.matriz = [['x', 'x', 'x'], ['x', 'x', 'x'], ['x', 'x', 'x']]
+        self.matriz = [['1','1','2'],['2','3','3'],['4','4','0']]
         
+    
     def verificarExistencia(self, d):
         return d in self.__jugador
     
@@ -60,18 +66,17 @@ class Sistema:
                 advert = self.verif_num(list_numgen, list_op_user, n)
                 return[(f'Llevas {self.contador} intentos, sigue adelante'), advert]
                         
-    def matrix(self):
-        self.lx = [3, 4, 5, 7, 0]
-        self.lista = ([val for val in self.lx for _ in (0, 1)])
-        random.shuffle(self.lista)
-        return [self.lista[i:i+3] for i in range(0, 9, 3)]
+    def actualizar_matriz(self, positionx, positiony):
+        self.matriz[positionx][positiony] = '-'
     
-    def matrix_base(self):
-        self.base = [['x', 'x', 'x'],['x', 'x', 'x'],['x', 'x', 'x']]
-        return self.base
+    def reiniciar_matriz(self):
+        self.matriz = [['x', 'x', 'x'], ['x', 'x', 'x'], ['x', 'x', 'x']]
+        return self.matriz
     
-    def match_review(self, num):
-        result = np.where(self.matrix() == num)
-        return result
+    def obtener_valor_matriz(self, positionx, positiony):
+        return self.matriz[positionx][positiony]
+    
+    def validar_parejas(self):
+        pass
 
     # %%

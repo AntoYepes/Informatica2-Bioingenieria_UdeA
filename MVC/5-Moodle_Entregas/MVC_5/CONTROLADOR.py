@@ -19,11 +19,11 @@ class Coordinador:
     def guessNum(self, n):
         return self.__mi_modelo.guessing(n)
         
-    def matrix_button(self):
-        return self.__mi_modelo.matrix_base()
-    
-    def match(self, num):
-        return self.__mi_modelo.match_review(num)
+    def inicializar_vector(self):
+        return self.__mi_modelo.reiniciar_matriz()
+
+    def obtener_valor(self, valx, valy):
+        return self.__mi_modelo.obtener_valor_matriz(valx, valy)
     
 def main():
     app = QApplication(sys.argv)

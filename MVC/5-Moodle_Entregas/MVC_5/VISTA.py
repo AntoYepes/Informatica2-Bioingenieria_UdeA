@@ -101,65 +101,65 @@ class VentanaJuego2(QDialog):
         loadUi('ventana_juego2.ui', self)
         self.setup()
         self.__ventana_ppal = ppal
+        self.contador = 0
+        # self.vector = self.__mi_coordinador.inicializar_vector()
         
     def setControlador(self, c):
         self.__mi_coordinador = c
         
     def setup(self):
-        self.uno.clicked.connect(self.btn1)
-        self.dos.clicked.connect(self.btn2)
-        self.tres.clicked.connect(self.btn3)
-        self.cuatro.clicked.connect(self.btn4)
-        self.cinco.clicked.connect(self.btn5)
-        self.seis.clicked.connect(self.btn6)
-        self.siete.clicked.connect(self.btn7)
-        self.ocho.clicked.connect(self.btn8)
-        self.nueve.clicked.connect(self.btn9)
-        self.buttonBox.accepted.connect(self.matching_game)
-        self.buttonBox.rejected.connect(self.opcion_cancelar)
+        self.uno.clicked.connect(lambda: self.boton_check(1))
+        self.dos.clicked.connect(lambda: self.boton_check(2))
+        self.tres.clicked.connect(lambda: self.boton_check(3))
+        self.cuatro.clicked.connect(lambda: self.boton_check(4))
+        self.cinco.clicked.connect(lambda: self.boton_check(5))
+        self.seis.clicked.connect(lambda: self.boton_check(6))
+        self.siete.clicked.connect(lambda: self.boton_check(7))
+        self.ocho.clicked.connect(lambda: self.boton_check(8))
+        self.nueve.clicked.connect(lambda:self.boton_check(9))
+        # self.buttonBox.accepted.connect(self.matching_game)
+        # self.buttonBox.rejected.connect(self.opcion_cancelar)
         
-    def btn1(self):
-        matrix = self.__mi_coordinador.matrix_button()
-        self.uno.setText(str(matrix[0, 0]))
+    def boton_check(self, opc):
+        if opc == 1:
+            valor = self.__mi_coordinador.obtener_valor(0, 0)
+            self.uno.setText(valor)
+        elif opc == 2:
+            valor = self.__mi_coordinador.obtener_valor(0, 1)
+            self.dos.setText(valor)
+        elif opc == 3:
+            valor = self.__mi_coordinador.obtener_valor(0, 2)
+            self.tres.setText(valor)
+        elif opc == 4:
+            valor = self.__mi_coordinador.obtener_valor(1, 0)
+            self.cuatro.setText(valor)
+        elif opc == 5:
+            valor = self.__mi_coordinador.obtener_valor(1, 1)
+            self.cinco.setText(valor)
+        elif opc == 6:
+            valor = self.__mi_coordinador.obtener_valor(1, 2)
+            self.seis.setText(valor)
+        elif opc == 7:
+            valor = self.__mi_coordinador.obtener_valor(2, 0)
+            self.siete.setText(valor)
+        elif opc == 8:
+            valor = self.__mi_coordinador.obtener_valor(2, 1)
+            self.ocho.setText(valor)
+        elif opc == 9:
+            valor = self.__mi_coordinador.obtener_valor(2, 2)
+            self.nueve.setText(valor)
         
-    def btn2(self):
-        matrix = self.__mi_coordinador.matrix_button()
-        self.dos.setText(str(matrix[0, 1]))
-        
-    def btn3(self):
-        matrix = self.__mi_coordinador.matrix_button()
-        self.tres.setText(str(matrix[0, 2]))  
-        
-    def btn4(self):
-        matrix = self.__mi_coordinador.matrix_button()
-        self.cuatro.setText(str(matrix[1, 0]))
-        
-    def btn5(self):
-        matrix = self.__mi_coordinador.matrix_button()
-        self.cinco.setText(str(matrix[1, 1]))
-        
-    def btn6(self):
-        matrix = self.__mi_coordinador.matrix_button()
-        self.seis.setText(str(matrix[1, 2]))
-        
-    def btn7(self):
-        matrix = self.__mi_coordinador.matrix_button()
-        self.siete.setText(str(matrix[2, 0]))
-        
-    def btn8(self):
-        matrix = self.__mi_coordinador.matrix_button()
-        self.ocho.setText(str(matrix[2, 1]))
     
-    def btn9(self):
-        matrix = self.__mi_coordinador.matrix_button()
-        self.nueve.setText(str(matrix[2, 2]))
+    # def generador(self, btn):
+    #     print('Gen')
         
-    def matching_game(self):
-        for i in [self.btn1, self.btn2, self.btn3, self.btn4, self.btn5, self.btn6, self.btn7, self.btn8, self.btn9]:
-            print(i)
-            if i.isChecked():
-                num1 = self.__mi_coordinador.match(i)
-                
+    #     btn.setText(str(valor))
+    #     self.vector[self.contador] = str(valor)
+    #     self.contador += 1
+
+    #     if (self.contador == 2):
+    #         result = self.__mi_coordinador.comparar(self.vector)
+
         
     def opcion_cancelar(self):
         self.close()
