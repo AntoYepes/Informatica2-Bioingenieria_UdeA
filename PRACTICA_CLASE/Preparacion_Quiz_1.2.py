@@ -117,14 +117,14 @@ class Hospital:
 # def error(h):
 #     print('\nERROR - Ingresó una opción no válida.\Intente de nuevo por favor.\n')
 
-def check(x):
-   while True:
-       try:
-           value = int(input(x))
-           break
-       except ValueError:
-           print('Ingrese un dato numerico...')
-   return value
+# def check(x):
+#    while True:
+#        try:
+#            value = int(input(x))
+#            break
+#        except ValueError:
+#            print('Ingrese un dato numerico...')
+#    return value
 
 def main():
     # Creamos el objeto de hospital

@@ -44,9 +44,9 @@ class VentanaPrincipal(QMainWindow):
         
     # Metodo cantidad stock
     def cantidad(self, r):
-       x = self.__mi_coordinador.cantidadStock(r)
-       msm = QMessageBox.information(self, 'Informacion', str(x), QMessageBox.Ok)
-       
+        x = self.__mi_coordinador.cantidadStock(r)
+        msm = QMessageBox.information(self, 'Informacion', str(x), QMessageBox.Ok)
+        
     #Metodos del setup
     def abrir_ventana_ingresar(self):
         #creo el objeto
