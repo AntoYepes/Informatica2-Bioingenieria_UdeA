@@ -17,14 +17,15 @@ class Coordinador:
             return 'Paciente agregado con exito'
         
     def recibir_infoVisita(self, f, r, n):
-        if self.__mi_modelo.verificarExistenciaVisita(f) == True:
+        if self.__mi_modelo.verificarExistVisita(f) == True:
             return 'Visita ya existe'
         else:
             self.__mi_modelo.AgregarVisitas(f, r, n)
             return 'Visita ingresado con exito'
-        
+
     def recibir_indices(self, delta, theta, alfa1, alfa2, betha, gamma):
         self.__mi_modelo.AgregarIndices(delta, theta, alfa1, alfa2, betha, gamma)
+        return 'Indice ingresado con exito'
         
 def main():
     app = QApplication(sys.argv)

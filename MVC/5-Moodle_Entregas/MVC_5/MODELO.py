@@ -27,7 +27,9 @@ class Sistema:
         # Atributos para juego 2 
         # self.matriz = [['x', 'x', 'x'], ['x', 'x', 'x'], ['x', 'x', 'x']]
         self.matriz = [['1','1','2'],['2','3','3'],['4','4','0']]
-        
+        random.shuffle(self.matriz)
+        self.lista_valores = [] # Guardamos las parejas de coord
+        self.lista_posic_encontradas = [] # Guardamos todas las coord que el usuario ok
     
     def verificarExistencia(self, d):
         return d in self.__jugador
@@ -70,13 +72,36 @@ class Sistema:
         self.matriz[positionx][positiony] = '-'
     
     def reiniciar_matriz(self):
-        self.matriz = [['x', 'x', 'x'], ['x', 'x', 'x'], ['x', 'x', 'x']]
-        return self.matriz
+        self.lista_valores = []
+        # self.lista_valores = [['x', 'x', 'x'], ['x', 'x', 'x'], ['x', 'x', 'x']]
     
     def obtener_valor_matriz(self, positionx, positiony):
         return self.matriz[positionx][positiony]
     
     def validar_parejas(self):
-        pass
+        v1 = self.lista_valores[0]
+        v2 = self.lista_valores[1]
+        return self.matriz[v1[0]][v1[1]] == self.matriz[v2[0]][v2[1]]
+    
+    def agregar_valores_lista(self, positionx, positiony):
+        self.lista_valores.append([positionx, positiony])
+        
+    def tamano_lista(self):
+        return len(self.lista_valores)
+    
+    def agregar_posic_encontradas(self, valor): #valor es lista con una posicion
+        self.lista_posic_encontradas.append(valor)
+        
+    def tamano_posic_encontradas(self):
+        return len(self.lista_posic_encontradas)
+        
+    def reiniciar_posic_encontradas(self):
+        self.lista_posic_encontradas = []
+        
+    def devolver_coord(self, position):
+        return self.lista_valores[position]
+
+    def validacion_boton_press(self, coordx, coordy):
+        return [coordx, coordy] in self.lista_posic_encontradas 
 
     # %%

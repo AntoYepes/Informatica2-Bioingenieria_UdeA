@@ -25,6 +25,30 @@ class Coordinador:
     def obtener_valor(self, valx, valy):
         return self.__mi_modelo.obtener_valor_matriz(valx, valy)
     
+    def agregar_valores(self, valx, valy):
+        return self.__mi_modelo.agregar_valores_lista(valx, valy)
+    
+    def tamano(self):
+        return self.__mi_modelo.tamano_lista()
+    
+    def validar_valores(self):
+        return self.__mi_modelo.validar_parejas()
+    
+    def agregar_posic(self, valor):
+        return self.__mi_modelo.agregar_posic_encontradas(valor)
+    
+    def reiniciar_posic(self):
+        return self.__mi_modelo.reiniciar_posic_encontradas()
+    
+    def devolver_coord(self, position):
+        return self.__mi_modelo.devolver_coord(position)
+    
+    def verif_boton(self, coordx, coordy):
+        return self.__mi_modelo.validacion_boton_press(coordx, coordy)
+    
+    def tamano_posic(self):
+        return self.__mi_modelo.tamano_posic_encontradas()
+    
 def main():
     app = QApplication(sys.argv)
     mi_vista = VentanaLogin()

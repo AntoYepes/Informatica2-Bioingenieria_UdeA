@@ -56,6 +56,10 @@ class ventanaInfoPaciente(QDialog):
         mensaje = self.__mi_coordinador.agregarinfoPaciente(nombre, edad, cedula, genero)     
         QMessageBox.information(self, 'Informacion', str(mensaje), QMessageBox.Ok)
         
+        infoPac = ventanaInfoPaciente(self)
+        infoPac.setControlador(self.__mi_coordinador)
+        infoPac.show()
+        
     def opcion_cancelar(self): # que me muestre la ventana principal
         self.hide()
         self.ventana_padre.show()
@@ -95,14 +99,19 @@ class ventanaVisitas(QDialog):
     
     def opcion_aceptar(self):
         fecha = self.campo_fecha.date()
+        fecha_s = fecha.toPyDate()
         registro = self.campo_registro.text()
         notas = self.campo_notas.toPlainText()
         mensaje = self.__mi_coordinador.recibir_infoVisita(fecha, registro, notas)
         QMessageBox.information(self, 'Informacion', str(mensaje), QMessageBox.Ok)
         
+        visitas = ventanaVisitas(self)
+        visitas.setControlador(self.__mi_coordinador)
+        visitas.show()
+        
     def opcion_cancelar(self):
-        self.close()
-
+        self.hide()
+        self.ventana_padre.show()
 class ventanaIndices(QDialog):
     def __init__(self, ppal = None):
         super(ventanaIndices, self).__init__(ppal)
@@ -131,10 +140,16 @@ class ventanaIndices(QDialog):
         alfa2 = self.campo_alfa2.text()
         betha = self.campo_betha.text()
         gamma = self.campo_gamma.text()        
-        self.__mi_coordinador.recibir_indices(delta, theta, alfa1, alfa2, betha, gamma)
+        mensaje = self.__mi_coordinador.recibir_indices(delta, theta, alfa1, alfa2, betha, gamma)
+        QMessageBox.information(self, 'Informacion', str(mensaje), QMessageBox.Ok)
+        
+        ventana_ppal = VentanaPrincipal(self)
+        ventana_ppal.setControlador(self.__mi_coordinador)
+        ventana_ppal.show()
         
     def opcion_cancelar(self):
-        self.close()
+        self.hide()
+        self.ventana_padre.show()
         
 def main():
     app=QApplication(sys.argv)
