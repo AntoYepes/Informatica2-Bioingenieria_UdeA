@@ -2,7 +2,7 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QMessageBox
 from PyQt5.uic import loadUi
-from MODELO import Medicamento
+from Modelo import Medicamento
 from PyQt5.QtGui import QIntValidator
 
 class ventanaPrincipal(QMainWindow):

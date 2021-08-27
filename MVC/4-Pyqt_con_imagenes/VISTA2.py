@@ -19,7 +19,17 @@ class VentanaRadioButton(QMainWindow):
         self.opcion2.toggled.connect(self.seleccion_opcion)
         self.opcion3.toggled.connect(self.seleccion_opcion)
         #señal slot para el spin box
+        self.valores.setMinimum(2)
+        self.valores.setMaximum(6)
         self.valores.valueChanged.connect(self.cambio_valor)
+        
+    def cambio_valor(self):
+        valor = self.valores.value()
+        msg = QMessageBox(self)
+        msg.setIcon(QMessageBox.warning)
+        msg.setWindowTitle('Resultado')
+        msg.setText('Valor ingresado: ' + str(valor))
+        msg.show()
         
     def boton_presionado(self):
         if self.boton1.isEnabled():
@@ -51,11 +61,11 @@ class VentanaRadioButton(QMainWindow):
             msgBox.setText(texto)
             msgBox.show()
             
-        def cambio_valor(self):
-            valor = self.valores.value()
-            #Se muestra el resultado
-            msgBox = QMessageBox(self)
-            msgBox.setIcon(QMessageBox.Warning)
-            msgBox.setWindowTitle("Resuldado")
-            msgBox.setText("Valor ingresado: " + str(valor))
-            msgBox.show()
+        # def cambio_valor(self):
+        #     valor = self.valores.value()
+        #     #Se muestra el resultado
+        #     msgBox = QMessageBox(self)
+        #     msgBox.setIcon(QMessageBox.Warning)
+        #     msgBox.setWindowTitle("Resuldado")
+        #     msgBox.setText("Valor ingresado: " + str(valor))
+        #     msgBox.show()

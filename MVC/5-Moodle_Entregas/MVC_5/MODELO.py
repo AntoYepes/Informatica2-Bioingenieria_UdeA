@@ -91,7 +91,7 @@ class Sistema:
     
     def agregar_posic_encontradas(self, valor): #valor es lista con una posicion
         self.lista_posic_encontradas.append(valor)
-        
+
     def tamano_posic_encontradas(self):
         return len(self.lista_posic_encontradas)
         

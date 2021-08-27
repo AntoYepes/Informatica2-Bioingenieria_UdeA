@@ -131,207 +131,78 @@ class VentanaJuego2(QDialog):
         self.ocho.setText('x')
         self.nueve.setText('x')
         
+    def logic(self, x, y):
+        if self.__mi_coordinador.verif_boton(x, y):
+                mensaje = 'Boton ya fue presionado'
+                QMessageBox.information(self, 'Informacion', mensaje, QMessageBox.Ok)
+        else:
+            self.__mi_coordinador.agregar_valores(x, y)
+            
+            if self.__mi_coordinador.tamano() == 2:
+                if self.__mi_coordinador.validar_valores():
+                    self.__mi_coordinador.agregar_posic(self.__mi_coordinador.devolver_coord(0))
+                    self.__mi_coordinador.agregar_posic(self.__mi_coordinador.devolver_coord(1))
+                    if self.__mi_coordinador.tamano_posic() == 8:
+                        mensaje = 'GANO!!!'
+                        QMessageBox.information(self, 'Informacion', mensaje, QMessageBox.Ok)
+                        self.reiniciar_matriz()
+                        self.__mi_coordinador.reiniciar_posic()
+                    self.__mi_coordinador.inicializar_vector()
+                    
+                else:
+                    mensaje = 'Suerte para la proxima'
+                    self.__mi_coordinador.inicializar_vector()
+                    QMessageBox.information(self, 'Informacion', mensaje, QMessageBox.Ok)
+                    self.reiniciar_matriz()
+                    self.__mi_coordinador.reiniciar_posic()
         
     def boton_check(self, opc):
         if opc == 1:
             valor = self.__mi_coordinador.obtener_valor(0, 0)
             self.uno.setText(valor)
-            if self.__mi_coordinador.verif_boton(0,0):
-                mensaje = 'ya boton'
-                QMessageBox.information(self, 'Informacion', mensaje, QMessageBox.Ok)
-            else:
-                self.__mi_coordinador.agregar_valores(0, 0)
-                
-                if self.__mi_coordinador.tamano() == 2:
-                    if self.__mi_coordinador.validar_valores():
-                        self.__mi_coordinador.agregar_posic(self.__mi_coordinador.devolver_coord(0))
-                        self.__mi_coordinador.agregar_posic(self.__mi_coordinador.devolver_coord(1))
-                        self.__mi_coordinador.inicializar_vector()
-                    else:
-                        mensaje = 'Suerte para la proxima'
-                        self.__mi_coordinador.inicializar_vector()
-                        QMessageBox.information(self, 'Intentos', mensaje, QMessageBox.Ok)
-                        self.reiniciar_matriz()
-                        self.__mi_coordinador.reiniciar_posic()
-                        
+            self.logic(0, 0)
+                    
         elif opc == 2:
             valor = self.__mi_coordinador.obtener_valor(0, 1)
             self.dos.setText(valor)
-            if self.__mi_coordinador.verif_boton(0,1):
-                mensaje = 'ya boton'
-                QMessageBox.information(self, 'Intentos', mensaje, QMessageBox.Ok)
-            else:
-                self.__mi_coordinador.agregar_valores(0, 1)
-                
-                if self.__mi_coordinador.tamano() == 2:
-                    if self.__mi_coordinador.validar_valores():
-                        self.__mi_coordinador.agregar_posic(self.__mi_coordinador.devolver_coord(0))
-                        self.__mi_coordinador.agregar_posic(self.__mi_coordinador.devolver_coord(1))
-                        self.__mi_coordinador.inicializar_vector()
-                        
-                    else:
-                        mensaje = 'Suerte para la proxima'
-                        self.__mi_coordinador.inicializar_vector()
-                        QMessageBox.information(self, 'Intentos', mensaje, QMessageBox.Ok)
-                        self.reiniciar_matriz()
-                        self.__mi_coordinador.reiniciar_posic()
+            self.logic(0, 1)
                         
         elif opc == 3:
             valor = self.__mi_coordinador.obtener_valor(0, 2)
             self.tres.setText(valor)
-            if self.__mi_coordinador.verif_boton(0, 2):
-                mensaje = 'ya boton'
-                QMessageBox.information(self, 'Intentos', mensaje, QMessageBox.Ok)
-            else:
-                self.__mi_coordinador.agregar_valores(0, 2)
-                
-                if self.__mi_coordinador.tamano() == 2:
-                    if self.__mi_coordinador.validar_valores():
-                        self.__mi_coordinador.agregar_posic(self.__mi_coordinador.devolver_coord(0))
-                        self.__mi_coordinador.agregar_posic(self.__mi_coordinador.devolver_coord(1))
-                        self.__mi_coordinador.inicializar_vector()
-                        
-                    else:
-                        mensaje = 'Suerte para la proxima'
-                        self.__mi_coordinador.inicializar_vector()
-                        QMessageBox.information(self, 'Intentos', mensaje, QMessageBox.Ok)
-                        self.reiniciar_matriz()
-                        self.__mi_coordinador.reiniciar_posic()
+            self.logic(0, 2)
                         
         elif opc == 4:
             valor = self.__mi_coordinador.obtener_valor(1, 0)
             self.cuatro.setText(valor)
-            if self.__mi_coordinador.verif_boton(1, 0):
-                mensaje = 'ya boton'
-                QMessageBox.information(self, 'Intentos', mensaje, QMessageBox.Ok)
-            else:
-                self.__mi_coordinador.agregar_valores(1, 0)
-                
-                if self.__mi_coordinador.tamano() == 2:
-                    if self.__mi_coordinador.validar_valores():
-                        self.__mi_coordinador.agregar_posic(self.__mi_coordinador.devolver_coord(0))
-                        self.__mi_coordinador.agregar_posic(self.__mi_coordinador.devolver_coord(1))
-                        self.__mi_coordinador.inicializar_vector()
-                        
-                    else:
-                        mensaje = 'Suerte para la proxima'
-                        self.__mi_coordinador.inicializar_vector()
-                        QMessageBox.information(self, 'Intentos', mensaje, QMessageBox.Ok)
-                        self.reiniciar_matriz()
-                        self.__mi_coordinador.reiniciar_posic()
+            self.logic(1, 0)
                         
         elif opc == 5:
             valor = self.__mi_coordinador.obtener_valor(1, 1)
             self.cinco.setText(valor)
-            if self.__mi_coordinador.verif_boton(1,1):
-                mensaje = 'ya boton'
-                QMessageBox.information(self, 'Intentos', mensaje, QMessageBox.Ok)
-            else:
-                self.__mi_coordinador.agregar_valores(1, 1)
-                
-                if self.__mi_coordinador.tamano() == 2:
-                    if self.__mi_coordinador.validar_valores():
-                        self.__mi_coordinador.agregar_posic(self.__mi_coordinador.devolver_coord(0))
-                        self.__mi_coordinador.agregar_posic(self.__mi_coordinador.devolver_coord(1))
-                        self.__mi_coordinador.inicializar_vector()
-                        
-                    else:
-                        mensaje = 'Suerte para la proxima'
-                        self.__mi_coordinador.inicializar_vector()
-                        QMessageBox.information(self, 'Intentos', mensaje, QMessageBox.Ok)
-                        self.reiniciar_matriz()
-                        self.__mi_coordinador.reiniciar_posic()
+            self.logic(1, 1)
                         
         elif opc == 6:
             valor = self.__mi_coordinador.obtener_valor(1, 2)
             self.seis.setText(valor)
-            if self.__mi_coordinador.verif_boton(1, 2):
-                mensaje = 'ya boton'
-                QMessageBox.information(self, 'Intentos', mensaje, QMessageBox.Ok)
-            else:
-                self.__mi_coordinador.agregar_valores(1, 2)
-                
-                if self.__mi_coordinador.tamano() == 2:
-                    if self.__mi_coordinador.validar_valores():
-                        self.__mi_coordinador.agregar_posic(self.__mi_coordinador.devolver_coord(0))
-                        self.__mi_coordinador.agregar_posic(self.__mi_coordinador.devolver_coord(1))
-                        self.__mi_coordinador.inicializar_vector()
-                        
-                    else:
-                        mensaje = 'Suerte para la proxima'
-                        self.__mi_coordinador.inicializar_vector()
-                        QMessageBox.information(self, 'Intentos', mensaje, QMessageBox.Ok)
-                        self.reiniciar_matriz()
-                        self.__mi_coordinador.reiniciar_posic()
+            self.logic(1, 2)
                         
         elif opc == 7:
             valor = self.__mi_coordinador.obtener_valor(2, 0)
             self.siete.setText(valor)
-            if self.__mi_coordinador.verif_boton(2, 0):
-                mensaje = 'ya boton'
-                QMessageBox.information(self, 'Intentos', mensaje, QMessageBox.Ok)
-            else:
-                self.__mi_coordinador.agregar_valores(2, 0)
-                
-                if self.__mi_coordinador.tamano() == 2:
-                    if self.__mi_coordinador.validar_valores():
-                        self.__mi_coordinador.agregar_posic(self.__mi_coordinador.devolver_coord(0))
-                        self.__mi_coordinador.agregar_posic(self.__mi_coordinador.devolver_coord(1))
-                        self.__mi_coordinador.inicializar_vector()
-                        
-                    else:
-                        mensaje = 'Suerte para la proxima'
-                        self.__mi_coordinador.inicializar_vector()
-                        QMessageBox.information(self, 'Intentos', mensaje, QMessageBox.Ok)
-                        self.reiniciar_matriz()
-                        self.__mi_coordinador.reiniciar_posic()
+            self.logic(2, 0)
+        
                         
         elif opc == 8:
             valor = self.__mi_coordinador.obtener_valor(2, 1)
             self.ocho.setText(valor)
-            if self.__mi_coordinador.verif_boton(2, 1):
-                mensaje = 'ya boton'
-                QMessageBox.information(self, 'Intentos', mensaje, QMessageBox.Ok)
-            else:
-                self.__mi_coordinador.agregar_valores(2, 1)
-                
-                if self.__mi_coordinador.tamano() == 2:
-                    if self.__mi_coordinador.validar_valores():
-                        self.__mi_coordinador.agregar_posic(self.__mi_coordinador.devolver_coord(0))
-                        self.__mi_coordinador.agregar_posic(self.__mi_coordinador.devolver_coord(1))
-                        self.__mi_coordinador.inicializar_vector()
-                        
-                    else:
-                        mensaje = 'Suerte para la proxima'
-                        self.__mi_coordinador.inicializar_vector()
-                        QMessageBox.information(self, 'Intentos', mensaje, QMessageBox.Ok)
-                        self.reiniciar_matriz()
-                        self.__mi_coordinador.reiniciar_posic()
+            self.logic(2, 1)
                         
         elif opc == 9:
             valor = self.__mi_coordinador.obtener_valor(2, 2)
             self.nueve.setText(valor)
-            if self.__mi_coordinador.verif_boton(2, 2):
-                mensaje = 'ya boton'
-                QMessageBox.information(self, 'Intentos', mensaje, QMessageBox.Ok)
-            else:
-                self.__mi_coordinador.agregar_valores(2, 2)
-                
-                if self.__mi_coordinador.tamano() == 2:
-                    if self.__mi_coordinador.validar_valores():
-                        self.__mi_coordinador.agregar_posic(self.__mi_coordinador.devolver_coord(0))
-                        self.__mi_coordinador.agregar_posic(self.__mi_coordinador.devolver_coord(1))
-                        self.__mi_coordinador.inicializar_vector()
-                        
-                    else:
-                        mensaje = 'Suerte para la proxima'
-                        self.__mi_coordinador.inicializar_vector()
-                        QMessageBox.information(self, 'Intentos', mensaje, QMessageBox.Ok)
-                        self.reiniciar_matriz()
-                        self.__mi_coordinador.reiniciar_posic()
-                        
+            self.logic(2, 2)
         
-
     def opcion_cancelar(self):
         self.close()
         self.__ventana_ppal.show()
